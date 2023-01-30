@@ -4,6 +4,7 @@ from bot_telegram import dp
 from aiogram import types
 import text
 import game
+from keyboard import kb, kb_start
 
 
 @dp.message_handler(commands=['start'])
@@ -22,8 +23,14 @@ async def process_new_game(message: types.Message):
             await enemy_turn(message)
 
 
+@dp.message_handler(commands=['stop_game'])
+async def process_stop_game(message: types.Message):
+    game.restart()
+    await message.reply('ИГРА ОКОНЧЕНА!', reply_markup=kb_start)
+
+
 async def player_turn(message: types.Message):
-    await message.answer(f'{message.from_user.first_name}, твой ход! Сколько возьмешь конфет?')
+    await message.answer(f'{message.from_user.first_name}, твой ход! Сколько возьмешь конфет?', reply_markup=kb)
 
 
 @dp.message_handler()
@@ -41,6 +48,8 @@ async def take(message: types.Message):
                 await enemy_turn(message)
             else:
                 await message.answer('Можешь взять только от 1 до 28 конфет!')
+        else:
+            await message.answer('Введи целое число!')
 
 
 async def enemy_turn(message: types.Message):
