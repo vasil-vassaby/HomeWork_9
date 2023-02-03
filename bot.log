@@ -1,0 +1,12 @@
+INFO:root:Start bot
+INFO:aiogram:Bot: candies_game_bot [@vasil_11_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Fri Feb  3 15:34:04 2023 - Васил Ашрафзянов - /start 
+INFO:root:Start bot
+INFO:aiogram:Bot: candies_game_bot [@vasil_11_bot]
+WARNING:aiogram:Updates were skipped successfully.
+INFO:aiogram.dispatcher.dispatcher:Start polling.
+INFO:root:Fri Feb  3 15:38:52 2023 - Васил Ашрафзянов - /start 
+INFO:root:Fri Feb  3 15:38:54 2023 - Васил Ашрафзянов - /new_game 
+INFO:root:Fri Feb  3 15:38:57 2023 - Васил Ашрафзянов - /stop_game 
