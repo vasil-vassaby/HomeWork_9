@@ -1,4 +1,6 @@
+import logging
 import random
+import time
 
 from bot_telegram import dp
 from aiogram import types
@@ -9,11 +11,13 @@ from keyboard import kb, kb_start
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
+    logging.info(f'{time.asctime()} - {message.from_user.full_name} - {message.get_command()} ')
     await message.answer(f"{message.from_user.first_name}{text.greeting}")
 
 
 @dp.message_handler(commands=['new_game'])
 async def process_new_game(message: types.Message):
+    logging.info(f'{time.asctime()} - {message.from_user.full_name} - {message.get_command()} ')
     game.restart()
     if game.game():
         draw = random.randint(0, 1)
@@ -25,6 +29,7 @@ async def process_new_game(message: types.Message):
 
 @dp.message_handler(commands=['stop_game'])
 async def process_stop_game(message: types.Message):
+    logging.info(f'{time.asctime()} - {message.from_user.full_name} - {message.get_command()} ')
     game.restart()
     await message.reply('ИГРА ОКОНЧЕНА!', reply_markup=kb_start)
 
